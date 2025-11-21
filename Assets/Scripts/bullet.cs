@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class bullet : MonoBehaviour
 {
     public float speed;
+    public float damage;
 
     private Vector2 dir = new();
     private float lifeTimeTimer = 0;
@@ -21,6 +22,15 @@ public class bullet : MonoBehaviour
         if (lifeTimeTimer > 5)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "enemy")
+        {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
         }
     }
 

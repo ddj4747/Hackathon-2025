@@ -39,9 +39,6 @@ public class PlayerMovement : MonoBehaviour
         moveAction.action.started += OnMove;
         moveAction.action.performed += OnMove;
         moveAction.action.canceled += OnMove;
-        //shootAction.action.started += onShoot;
-        //shootAction.action.performed += onShoot;
-        //shootAction.action.canceled += onShoot;
     }
 
     // Update is called once per frame
