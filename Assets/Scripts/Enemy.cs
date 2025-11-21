@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent (typeof(HealthComponent), typeof(SpriteRenderer))]
@@ -11,9 +12,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _speed;
+    [SerializeField] private Bullet _bullet;
+    
 
     [Header("Info")]
     public Path _path;
+
+    private IEnumerator AttackLoop()
+    {
+        while (true)
+        {
+            Instantiate(_bullet, transform.position, transform.rotation);
+            yield return new WaitForSeconds(_attackSpeed);
+        }
+    }
 
     private void MoveToWaipoint()
     {
@@ -44,7 +56,10 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector2(_path._pathWaypoints[0]._x, _path._pathWaypoints[0]._y);
 
         MoveToWaipoint();
+        StartCoroutine(AttackLoop());
     }
+
+
 
 
 }
