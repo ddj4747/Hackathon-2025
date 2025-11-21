@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -15,6 +17,53 @@ public class Path : MonoBehaviour
     }
 
     public Waypoint[] _pathWaypoints;
+
+    [HideInInspector] public List<List<Vector3>> _pathSegments;
+
+    public void OnEnable()
+    {
+        _pathSegments = new List<List<Vector3>>();
+        for (int i = 0; i < _pathWaypoints.Length-1; i++) {
+            _pathSegments.Add(GetSegmentPoints(
+                _pathWaypoints[i],
+                new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
+                new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i+1]._y)
+            ));
+        }
+
+        _pathSegments.Add(GetSegmentPoints(
+            _pathWaypoints[_pathWaypoints.Length - 1],
+            new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
+            new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
+        ));
+    }
+
+    List<Vector3> GetSegmentPoints(Waypoint w, Vector3 a, Vector3 b, int segments = 20)
+    {
+        List<Vector3> pts = new List<Vector3>();
+
+        if (!w._curve || Mathf.Approximately(w._curveFactor, 0f))
+        {
+            pts.Add(a);
+            pts.Add(b);
+            return pts;
+        }
+
+        // Same midpoint offset logic as your Gizmo
+        Vector3 midpoint = (a + b) * 0.5f;
+        Vector3 dir = (b - a).normalized;
+        Vector3 perp = new Vector3(-dir.y, dir.x, 0);
+        Vector3 control = midpoint + perp * w._curveFactor;
+
+        for (int i = 0; i <= segments; i++)
+        {
+            float t = i / (float)segments;
+            pts.Add(QuadraticBezier(a, control, b, t));
+        }
+
+        return pts;
+    }
+
 
     [Header("Path Settings")]
     [SerializeField] bool loop = false;
