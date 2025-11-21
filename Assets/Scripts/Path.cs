@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,22 +22,27 @@ public class Path : MonoBehaviour
 
     [HideInInspector] public List<List<Vector3>> _pathSegments;
 
-    public void OnEnable()
+    public void Awake()
     {
         _pathSegments = new List<List<Vector3>>();
-        for (int i = 0; i < _pathWaypoints.Length-1; i++) {
+        for (int i = 0; i < _pathWaypoints.Length - 1; i++)
+        {
             _pathSegments.Add(GetSegmentPoints(
                 _pathWaypoints[i],
                 new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
-                new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i+1]._y)
+                new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i + 1]._y)
             ));
         }
 
-        _pathSegments.Add(GetSegmentPoints(
-            _pathWaypoints[_pathWaypoints.Length - 1],
-            new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
-            new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
-        ));
+        // only add closing segment if loop is enabled
+        if (loop && _pathWaypoints.Length > 1)
+        {
+            _pathSegments.Add(GetSegmentPoints(
+                _pathWaypoints[_pathWaypoints.Length - 1],
+                new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
+                new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
+            ));
+        }
     }
 
     List<Vector3> GetSegmentPoints(Waypoint w, Vector3 a, Vector3 b, int segments = 20)
