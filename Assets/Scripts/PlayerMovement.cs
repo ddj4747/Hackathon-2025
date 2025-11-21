@@ -4,10 +4,12 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveAction;
+    [SerializeField] private InputActionReference shootAction;
     [SerializeField] private float _movementSpeed = 45f;
+    [SerializeField] private ShootingComponent shootingComponent1;
+
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody2D;
-
 
     private void Awake()
     {
@@ -21,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
         bool currentlyMoving = _moveInput.magnitude > 0.1f;
 
     }
+
+    private void onShoot()
+    {
+        shootingComponent1.Shoot(transform.up);
+    }
    
     void Start()
     {
@@ -28,12 +35,18 @@ public class PlayerMovement : MonoBehaviour
         moveAction.action.started += OnMove;
         moveAction.action.performed += OnMove;
         moveAction.action.canceled += OnMove;
+        //shootAction.action.started += onShoot;
+        //shootAction.action.performed += onShoot;
+        //shootAction.action.canceled += onShoot;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (shootAction.action.ReadValue<float>() > 0f)
+        {
+            onShoot();
+        }
     }
 
     private void FixedUpdate()
@@ -43,4 +56,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = _moveInput * _movementSpeed;
         _rigidbody2D.AddForce(movement);
     }
+
+
 }
