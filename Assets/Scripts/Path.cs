@@ -20,24 +20,24 @@ public class Path : MonoBehaviour
 
     public Waypoint[] _pathWaypoints;
 
-    [HideInInspector] public List<List<Vector3>> _pathSegments;
+    [HideInInspector] public List<Vector3> _pathSegments;
 
     public void Awake()
     {
-        _pathSegments = new List<List<Vector3>>();
+        _pathSegments = new List<Vector3>();
         for (int i = 0; i < _pathWaypoints.Length - 1; i++)
         {
-            _pathSegments.Add(GetSegmentPoints(
+            
+            _pathSegments.AddRange(GetSegmentPoints(
                 _pathWaypoints[i],
                 new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
                 new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i + 1]._y)
             ));
         }
 
-        // only add closing segment if loop is enabled
         if (loop && _pathWaypoints.Length > 1)
         {
-            _pathSegments.Add(GetSegmentPoints(
+            _pathSegments.AddRange(GetSegmentPoints(
                 _pathWaypoints[_pathWaypoints.Length - 1],
                 new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
                 new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
