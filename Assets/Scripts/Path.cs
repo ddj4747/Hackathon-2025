@@ -6,15 +6,15 @@ using UnityEditor;
 public class Path : MonoBehaviour
 {
     [System.Serializable]
-    struct Waypoint
+    public struct Waypoint
     {
         public float _x;
         public float _y;
-        public bool _curve;     // use curve or not for this segment
-        public float _curveFactor; // "how curvy" the segment is
+        public bool _curve;
+        public float _curveFactor;
     }
 
-    [SerializeField] Waypoint[] _pathWaypoints;
+    public Waypoint[] _pathWaypoints;
 
     [Header("Path Settings")]
     [SerializeField] bool loop = false;
