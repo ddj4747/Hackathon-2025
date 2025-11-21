@@ -7,9 +7,6 @@ public class HealthComponent : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField, Min(0f)] private float _maxHealth = 100f;
     private float _currentHealth = 100f;
-    public float _regeneration = 0.0f;
-    public float regenTimer_;
-
 
     [Header("Events")]
     public UnityEvent<float> OnHealthChanged;
@@ -19,21 +16,9 @@ public class HealthComponent : MonoBehaviour
     public float MaxHealth => _maxHealth;
     public bool IsDead => _currentHealth <= 0f;
 
-    private void FixedUpdate()
-    {
-        regenTimer_ += Time.deltaTime;
-
-        if (regenTimer_ > 1)
-        {
-            regenTimer_ = 0;
-            if (_regeneration > 0)
-                Heal(_regeneration);
-        }
-    }
-
     private void Awake()
     {
-        _currentHealth = _maxHealth
+        _currentHealth = _maxHealth;
     }
 
     public void TakeDamage(float damage)

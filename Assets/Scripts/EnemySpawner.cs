@@ -1,6 +1,4 @@
 using UnityEngine;
-public class Enemy;
-
 
 public class EnemySpawner : MonoBehaviour
 {
