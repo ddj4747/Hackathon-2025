@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference shootAction;
     [SerializeField] private float _movementSpeed = 45f;
     [SerializeField] private ShootingComponent shootingComponent1;
+    [SerializeField] private ShootingComponent shootingComponent2;
 
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody2D;
+    private bool wasLastShotLeft = false;
 
     private void Awake()
     {
@@ -26,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void onShoot()
     {
-        shootingComponent1.Shoot(transform.up);
+            shootingComponent2.Shoot(transform.up);
+            shootingComponent1.Shoot(transform.up);
+
     }
    
     void Start()
