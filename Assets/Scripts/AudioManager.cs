@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public enum AudioClipType 
-    { 
+    { e
 
     }
 
