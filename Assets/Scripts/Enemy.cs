@@ -23,15 +23,18 @@ public class Enemy : MonoBehaviour
         );
 
 
-        float duration = Vector2.Distance(transform.position, destination) / _speed;
+        float distance = Vector2.Distance(transform.position, destination);
+        float duration = distance / _speed;
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMoveX(destination.x, duration))
-            .Append(transform.DOMoveY(destination.y, duration))
-            .SetEase(Ease.Linear)
+        seq.Append(transform.DOPath(_path._pathSegments[_waypointIndex].ToArray(), duration, PathType.Linear))
             .OnComplete(() =>
             {
-                _waypointIndex = _path._pathWaypoints.Length % (_waypointIndex + 1);
+                _waypointIndex++;
+                if (_waypointIndex == _path._pathWaypoints.Length)
+                {
+                    _waypointIndex = 0;
+                }
                 MoveToWaipoint();
             });
     }
@@ -39,6 +42,13 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         if (_path == null) return;
+
+        transform.position = new Vector2(_path._pathWaypoints[0]._x, _path._pathWaypoints[0]._y);
+        _waypointIndex++;
+        if (_waypointIndex == _path._pathWaypoints.Length)
+        {
+            _waypointIndex = 0;
+        }
 
         MoveToWaipoint();
     }
