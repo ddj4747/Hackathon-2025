@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -16,26 +18,58 @@ public class Path : MonoBehaviour
         public float _curveFactor;
     }
 
+    [System.Serializable]
+    public struct EnemySpawnOptions
+    {
+        public float _spawnDelay;
+        public int _amount;
+        public Enemy _enemy;
+    }
+
+    [Header("Path structure")]
     public Waypoint[] _pathWaypoints;
 
-    [HideInInspector] public List<List<Vector3>> _pathSegments;
+    [Header("Spawn settings")]
+    [SerializeField] public List<EnemySpawnOptions> _enemySpawnOptions;
 
-    public void OnEnable()
+    [HideInInspector] public List<Vector3> _pathSegments;
+
+    private IEnumerator SpawnEnemies()
     {
-        _pathSegments = new List<List<Vector3>>();
-        for (int i = 0; i < _pathWaypoints.Length-1; i++) {
-            _pathSegments.Add(GetSegmentPoints(
+        foreach (var option in _enemySpawnOptions)
+        {
+            for (int i = 0; i < option._amount; i++)
+            {
+                Enemy enemy = Instantiate(option._enemy);
+                enemy._path = this;
+                yield return new WaitForSeconds(option._spawnDelay);
+            }
+        }
+    }
+
+    public void Awake()
+    {
+        _pathSegments = new List<Vector3>();
+        for (int i = 0; i < _pathWaypoints.Length - 1; i++)
+        {
+            
+            _pathSegments.AddRange(GetSegmentPoints(
                 _pathWaypoints[i],
                 new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
-                new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i+1]._y)
+                new Vector3(_pathWaypoints[i + 1]._x, _pathWaypoints[i + 1]._y)
             ));
         }
 
-        _pathSegments.Add(GetSegmentPoints(
-            _pathWaypoints[_pathWaypoints.Length - 1],
-            new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
-            new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
-        ));
+        if (loop && _pathWaypoints.Length > 1)
+        {
+            _pathSegments.AddRange(GetSegmentPoints(
+                _pathWaypoints[_pathWaypoints.Length - 1],
+                new Vector3(_pathWaypoints[_pathWaypoints.Length - 1]._x, _pathWaypoints[_pathWaypoints.Length - 1]._y),
+                new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
+            ));
+        }
+
+        StartCoroutine(SpawnEnemies());
     }
 
     List<Vector3> GetSegmentPoints(Waypoint w, Vector3 a, Vector3 b, int segments = 20)
