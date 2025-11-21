@@ -45,30 +45,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeightedRandom
   delay: 1
+  baseSpeed: 0.002
+  addedSpeed: 0.001
   maxAmountOfStars: 15
   amountOfCurrentStars: 0
   stars:
   - name: 0
-    weight: 3
+    weight: 10
     prefab: {fileID: 2248074280157836599, guid: 06c18063fac804441b5d67f44665bce8, type: 3}
   - name: 1
-    weight: 3
+    weight: 10
     prefab: {fileID: 755303524079550721, guid: 5e4b233f73067cc42a7f5b4e93dae083, type: 3}
   - name: 2
-    weight: 3
+    weight: 10
     prefab: {fileID: 3773410227449575934, guid: 157b5e06a0e98b0448c4309f5d029d3e, type: 3}
   - name: 3
-    weight: 3
+    weight: 10
     prefab: {fileID: 3878521750648537949, guid: 0e989daafd890ee468b21d9c6403c39a, type: 3}
   - name: 4
-    weight: 3
+    weight: 10
     prefab: {fileID: 9020782933502197601, guid: 2d4c0640e1b40d8419630ed7ccbb064a, type: 3}
   - name: 5
-    weight: 3
+    weight: 10
     prefab: {fileID: 5491129431399415221, guid: 25dfca36fea9b49479d745e9ecbdab1e, type: 3}
   - name: 6
-    weight: 3
+    weight: 10
     prefab: {fileID: 7508350095143907769, guid: 9def1e64dd2e4634989abaabc7f51724, type: 3}
   - name: 7
+    weight: 10
+    prefab: {fileID: 9169437542079659053, guid: c95abe53a9a45ad48b3a8b2787007d9c, type: 3}
+  - name: 8
     weight: 3
     prefab: {fileID: 9169437542079659053, guid: c95abe53a9a45ad48b3a8b2787007d9c, type: 3}

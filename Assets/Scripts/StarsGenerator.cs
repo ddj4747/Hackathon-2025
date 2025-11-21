@@ -5,8 +5,8 @@ public class StarsGenerator : MonoBehaviour
 {
     [SerializeField] private float delay = 1f; // seconds between spawns
     private float timer = 0f;
-    private float baseSpeed = 0.001f;
-    private float addedSpeed = 0.0005f;
+    [SerializeField] private float baseSpeed = 0.002f;
+    [SerializeField]private float addedSpeed = 0.001f;
     [SerializeField] private int maxAmountOfStars = 15;
     [SerializeField] private int amountOfCurrentStars = 0;
 
@@ -61,8 +61,8 @@ public class StarsGenerator : MonoBehaviour
         Star chosen = PickStar(out int starIndex);
         if (chosen.prefab != null)
         {
-            float randomY = UnityEngine.Random.Range(-7f, 7f);
-            float randomX = UnityEngine.Random.Range(-10f, 10f);
+            float randomY = UnityEngine.Random.Range(-12f, 13f);
+            float randomX = UnityEngine.Random.Range(-20f,20f);
 
             GameObject starObj = Instantiate(chosen.prefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
 
@@ -81,9 +81,9 @@ public class StarsGenerator : MonoBehaviour
         Star chosen = PickStar(out int starIndex);
         if (chosen.prefab != null)
         {
-            float randomX = UnityEngine.Random.Range(-10f, 10f);
+            float randomX = UnityEngine.Random.Range(-18f, 18f);
 
-            GameObject starObj = Instantiate(chosen.prefab, new Vector3(randomX, 6f, 0), Quaternion.identity);
+            GameObject starObj = Instantiate(chosen.prefab, new Vector3(randomX, 13f, 0), Quaternion.identity);
 
             // Assign StarsGenerator reference to the spawned prefab
             StarBehaviour sb = starObj.GetComponent<StarBehaviour>();
