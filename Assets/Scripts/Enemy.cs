@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
 
     [Header("Info")]
-    [SerializeField] private Path _path;
+    public Path _path;
 
     private void MoveToWaipoint()
     {

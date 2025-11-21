@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
+using System.Collections;
 
 
 #if UNITY_EDITOR
@@ -18,9 +18,34 @@ public class Path : MonoBehaviour
         public float _curveFactor;
     }
 
+    [System.Serializable]
+    public struct EnemySpawnOptions
+    {
+        public float _spawnDelay;
+        public int _amount;
+        public Enemy _enemy;
+    }
+
+    [Header("Path structure")]
     public Waypoint[] _pathWaypoints;
 
+    [Header("Spawn settings")]
+    [SerializeField] public List<EnemySpawnOptions> _enemySpawnOptions;
+
     [HideInInspector] public List<Vector3> _pathSegments;
+
+    private IEnumerator SpawnEnemies()
+    {
+        foreach (var option in _enemySpawnOptions)
+        {
+            for (int i = 0; i < option._amount; i++)
+            {
+                Enemy enemy = Instantiate(option._enemy);
+                enemy._path = this;
+                yield return new WaitForSeconds(option._spawnDelay);
+            }
+        }
+    }
 
     public void Awake()
     {
@@ -43,6 +68,8 @@ public class Path : MonoBehaviour
                 new Vector3(_pathWaypoints[0]._x, _pathWaypoints[0]._y)
             ));
         }
+
+        StartCoroutine(SpawnEnemies());
     }
 
     List<Vector3> GetSegmentPoints(Waypoint w, Vector3 a, Vector3 b, int segments = 20)
