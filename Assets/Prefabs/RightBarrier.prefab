@@ -174,6 +174,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718294064724477193, guid: 410fcb27548528b47b06ad4cfc11219b, type: 3}
   m_PrefabInstance: {fileID: 3722531661643284199}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9139427937990170708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5583570303445575347, guid: 410fcb27548528b47b06ad4cfc11219b, type: 3}
+  m_PrefabInstance: {fileID: 3722531661643284199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927afdd24718332438e95216c12fb37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1001 &6665715917383242584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,13 +241,93 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2543136135914037726}
+    - targetCorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2925334120816755470}
   m_SourcePrefab: {fileID: 100100000, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
 --- !u!4 &6279950975628661679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 839850329066258679, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
   m_PrefabInstance: {fileID: 6665715917383242584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9196317483687183949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+  m_PrefabInstance: {fileID: 6665715917383242584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2543136135914037726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196317483687183949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8048a4075da3a284abed63604f821a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 100
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2925334120816755470}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnHealthChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9139427937990170708}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2925334120816755470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196317483687183949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927afdd24718332438e95216c12fb37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  _damage: 0
+  _attackSpeed: 0
+  _speed: 0
+  _bullet: {fileID: 0}
+  _attackOffset: {x: 0, y: 0, z: 0}
+  _passive: 1
+  _deathMaterial: {fileID: 0}
+  _normalMaterial: {fileID: 0}
+  _path: {fileID: 0}
+  _moveOnWaypoints: 1

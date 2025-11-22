@@ -230,13 +230,93 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1314953913426406900}
+    - targetCorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5940761153229608499}
   m_SourcePrefab: {fileID: 100100000, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
 --- !u!4 &4756071269046677392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 839850329066258679, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
   m_PrefabInstance: {fileID: 5307293090825547623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7690399647602489970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2530604392561251605, guid: d5d29c75ac8065c45826ae519fe17146, type: 3}
+  m_PrefabInstance: {fileID: 5307293090825547623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1314953913426406900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7690399647602489970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8048a4075da3a284abed63604f821a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 100
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5940761153229608499}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnHealthChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5940761153229608499}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5940761153229608499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7690399647602489970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927afdd24718332438e95216c12fb37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  _damage: 0
+  _attackSpeed: 0
+  _speed: 0
+  _bullet: {fileID: 0}
+  _attackOffset: {x: 0, y: 0, z: 0}
+  _passive: 1
+  _deathMaterial: {fileID: 0}
+  _normalMaterial: {fileID: 0}
+  _path: {fileID: 0}
+  _moveOnWaypoints: 1
