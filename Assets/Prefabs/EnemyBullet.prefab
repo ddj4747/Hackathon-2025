@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3166506461366107561}
   - component: {fileID: 4776433442719536092}
   m_Layer: 0
-  m_Name: PlayerBullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bullet
   speed: 10
-  damage: 20
-  tag: enemy
+  damage: 0
+  tag: player
 --- !u!61 &4776433442719536092
 BoxCollider2D:
   m_ObjectHideFlags: 0
