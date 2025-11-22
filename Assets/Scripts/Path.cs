@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
+
 
 
 #if UNITY_EDITOR
@@ -34,6 +36,7 @@ public class Path : MonoBehaviour
 
     [HideInInspector] public List<Vector3> _pathSegments;
 
+    private int counter = 0;
     private IEnumerator SpawnEnemies()
     {
         foreach (var option in _enemySpawnOptions)
@@ -42,8 +45,20 @@ public class Path : MonoBehaviour
             {
                 Enemy enemy = Instantiate(option._enemy);
                 enemy._path = this;
+                counter++;
+                enemy.HealthComponent.OnDeath.AddListener(OnDeathH);
                 yield return new WaitForSeconds(option._spawnDelay);
             }
+        }
+    }
+
+    private void OnDeathH()
+    {
+        counter--;
+
+        if (counter == 0)
+        {
+            Destroy(gameObject);
         }
     }
 
