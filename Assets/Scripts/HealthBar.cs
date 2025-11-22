@@ -47,7 +47,7 @@ public class HealthBarManager : MonoBehaviour
 
         if (health == 0)
         {
-            SceneManager.LoadScene(SceneIndex, LoadSceneMode.Single);
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
         }
     }
 }
