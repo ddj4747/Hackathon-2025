@@ -46,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Path
   _pathWaypoints:
   - _x: -2.18
-    _y: 6.81
+    _y: 12.8
     _curve: 0
     _curveFactor: 0
   - _x: -2.16
-    _y: 5.49
+    _y: 8.46
     _curve: 1
     _curveFactor: -1.86
   - _x: 1.16
-    _y: 2.89
+    _y: 4.16
     _curve: 1
     _curveFactor: 2.52
   - _x: 5.08
@@ -74,18 +74,27 @@ MonoBehaviour:
     _curve: 1
     _curveFactor: 2.54
   - _x: -3.43
-    _y: 2.99
+    _y: 4.4
     _curve: 1
     _curveFactor: -1.65
   - _x: 0.12
-    _y: 5.35
+    _y: 8.37
     _curve: 0
     _curveFactor: -1.65
   - _x: 0.13
-    _y: 6.88
+    _y: 8
     _curve: 0
     _curveFactor: -1.65
-  loop: 1
+  - _x: 0.13
+    _y: 12.1
+    _curve: 0
+    _curveFactor: -1.65
+  _enemySpawnOptions:
+  - _spawnDelay: 0.3
+    _amount: 3
+    _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
+  _pathSegments: []
+  loop: 0
   waypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lineColor: {r: 1, g: 1, b: 1, a: 1}
   curveColor: {r: 0, g: 1, b: 1, a: 1}
