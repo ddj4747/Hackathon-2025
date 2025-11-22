@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Vector3 _attackOffset;
+    [SerializeField] private bool _passive;
     
 
     [Header("Info")]
@@ -70,7 +71,10 @@ public class Enemy : MonoBehaviour
         _moveSeq = DOTween.Sequence();
 
         MoveToWaipoint();
-        StartCoroutine(AttackLoop());
+        if (!_passive) 
+        { 
+            StartCoroutine(AttackLoop());
+        }
     }
 
     public void OnDeath()
