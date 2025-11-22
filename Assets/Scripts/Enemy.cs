@@ -1,7 +1,7 @@
 using DG.Tweening;
-
 using System.Collections;
 using UnityEngine;
+using static enemyParticleSystem;
 
 [RequireComponent (typeof(HealthComponent), typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Vector3 _attackOffset;
     [SerializeField] private bool _passive;
+    
     
 
     [Header("Info")]
@@ -79,9 +80,16 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
+        enemyParticleSystem.playDeathParticles(transform.position);
+
         _moveSeq?.OnComplete(null);
         _moveSeq?.Kill();
         StopAllCoroutines();
         Destroy(gameObject);
+    }
+
+    public void OnHealthChange(float ss)
+    {
+        enemyParticleSystem.playDamageParticles(transform.position, Quaternion.Euler(transform.up));
     }
 }
