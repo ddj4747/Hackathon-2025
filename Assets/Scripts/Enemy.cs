@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float _attackSpeed;
     public float _speed;
     public Bullet _bullet;
-    [SerializeField] private Vector3 _attackOffset;
+    public Vector3 _attackOffset;
     [SerializeField] private bool _passive;
 
     private Rigidbody2D rb;

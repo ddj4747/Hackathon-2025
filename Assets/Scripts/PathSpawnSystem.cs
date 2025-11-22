@@ -10,10 +10,14 @@ public class PathManager : MonoBehaviour
     private float timeSinceLastSpawn = 100f;
     private float randomDelay = 0f;
     public InfoBoxScript InfoBoxScript;
+
+    public static int WaveCounter = 0;
+
     void Start()
     {
         // Initialize with a random delay to wait before spawning the first path
         SetRandomDelay();
+        WaveCounter = 0;
         
     }
 
@@ -34,6 +38,7 @@ public class PathManager : MonoBehaviour
                 {
                     // Instantiate the Path prefab at the origin (or modify as necessary)
                     Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
+                    WaveCounter++;
                 }
 
                 // Reset the time and set a new random delay
