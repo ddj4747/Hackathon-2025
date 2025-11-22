@@ -18,8 +18,6 @@ public class StarBehaviour : MonoBehaviour
     {
         if (starsGenerator != null)
         {
-            Debug.Log("Current stars: " + starsGenerator.AmountOfCurrentStars);
-
             // Increment the timer
             currentDelay += Time.deltaTime;
 

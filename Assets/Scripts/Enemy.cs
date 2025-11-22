@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     [Header("Info")]
     public Path _path;
 
+    private Sequence _moveSeq;
+
     private IEnumerator AttackLoop()
     {
         while (true)
@@ -39,9 +41,9 @@ public class Enemy : MonoBehaviour
 
         float duration = pathLength / _speed;
 
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOPath(_path._pathSegments.ToArray(), duration, PathType.Linear, PathMode.TopDown2D)
-            .SetEase(Ease.Linear))
+        _moveSeq.Append(transform.DOPath(_path._pathSegments.ToArray(), duration, PathType.Linear, PathMode.TopDown2D)
+            .SetEase(Ease.Linear)
+            .SetId(this))
             .OnComplete(() =>
             {
                 MoveToWaipoint();
@@ -55,11 +57,20 @@ public class Enemy : MonoBehaviour
 
         transform.position = new Vector2(_path._pathWaypoints[0]._x, _path._pathWaypoints[0]._y);
 
+        _moveSeq = DOTween.Sequence();
+
         MoveToWaipoint();
         StartCoroutine(AttackLoop());
     }
 
-
+    public void OnDeath()
+    {
+        Debug.Log("death");
+        _moveSeq?.OnComplete(null);
+        _moveSeq?.Kill();
+        StopAllCoroutines();
+        Destroy(this);
+    }
 
 
 }
