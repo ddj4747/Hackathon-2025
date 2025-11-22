@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -32,11 +33,6 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
-
-            if (collision.gameObject.tag == "enemy")
-            {
-                collision.gameObject.GetComponent<ParticleSystem>().Play();
-            }
         }
     }
 
