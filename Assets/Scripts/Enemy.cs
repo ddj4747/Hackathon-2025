@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent (typeof(HealthComponent), typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
@@ -15,9 +16,14 @@ public class Enemy : MonoBehaviour
     public Vector3 _attackOffset;
     [SerializeField] private bool _passive;
 
+    public Material _deathMaterial;
+    public Material _normalMaterial;
+
+    private Material _deathMaterialCopy;
+    private Material _normalMaterialCopy;
+
     private Rigidbody2D rb;
-    
-    
+    private SpriteRenderer sp;
 
     [Header("Info")]
     public Path _path;
@@ -28,6 +34,10 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         HealthComponent = GetComponent<HealthComponent>();
+        sp = GetComponent<SpriteRenderer>();
+
+        _deathMaterialCopy = new Material(_deathMaterial);
+        _normalMaterialCopy = new Material(_normalMaterial);
     }
 
     private IEnumerator AttackLoop()
@@ -119,12 +129,33 @@ public class Enemy : MonoBehaviour
         PathManager.EnemyLeft--;
     }
 
+    Coroutine damageCoruntine = null;
+    private IEnumerator DamageShader()
+    {
+        List<Material> mt = new List<Material>();
+        mt.Add(_deathMaterialCopy);
+        sp.SetMaterials(mt);
+
+        yield return new WaitForSeconds(0.2f);
+
+        mt.Clear();
+        mt.Add(_normalMaterialCopy);
+        sp.SetMaterials(mt);
+    }
+
     public void OnHealthChange(float ss)
     {
         if (isDead)
         {
             return;
         }
+
+        if (damageCoruntine != null)
+        {
+            StopCoroutine(damageCoruntine);
+        }
+
+        damageCoruntine = StartCoroutine(DamageShader());
 
         enemyParticleSystem.playDamageParticles(transform.position, Quaternion.Euler(transform.up));
     }

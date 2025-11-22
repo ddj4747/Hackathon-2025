@@ -126,7 +126,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 470484783931029153, guid: bfef85b16f8f55644b46a18a9a510506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,6 +156,8 @@ MonoBehaviour:
   _bullet: {fileID: 3166506461366107561, guid: dbb595211edb43a4ca300d6ac432ce76, type: 3}
   _attackOffset: {x: 0, y: 0, z: 0}
   _passive: 1
+  _deathMaterial: {fileID: 2100000, guid: 01cfb5ca356c57d498446d0008aba425, type: 2}
+  _normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _path: {fileID: 0}
 --- !u!50 &3927686837466130353
 Rigidbody2D:

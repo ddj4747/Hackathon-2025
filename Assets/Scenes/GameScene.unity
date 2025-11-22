@@ -926,6 +926,34 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130249459}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HealthBarManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406489373688145820, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7646643780603065976, guid: 9a8e5e9148fd52a41a4742e66bdf2b5d, type: 3}
       propertyPath: _movementSpeed
       value: 35
@@ -1609,7 +1637,7 @@ MonoBehaviour:
   - {fileID: 3273236}
   - {fileID: 2126926736}
   damageMaterial: {fileID: 2100000, guid: 61b7e850e7b090f4f85705b47590dcb2, type: 2}
-  damageMaterialTime: 2
+  damageMaterialTime: 1.3
 --- !u!4 &2130249460
 Transform:
   m_ObjectHideFlags: 0
