@@ -34,7 +34,7 @@ public class StarBehaviour : MonoBehaviour
             }
 
             // Destroy when below threshold
-            if (currentPos.y < -17f) // changed to negative so they fall off-screen
+            if (currentPos.y < -20f) // changed to negative so they fall off-screen
             {
                 starsGenerator.AmountOfCurrentStars--;
                 Destroy(gameObject);

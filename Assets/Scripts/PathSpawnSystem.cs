@@ -33,7 +33,7 @@ public class PathManager : MonoBehaviour
                 if (chosenPath != null)
                 {
                     // Instantiate the Path prefab at the origin (or modify as necessary)
-                    Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
+                    Instantiate(chosenPath.gameObject, new Vector2(0, 0), Quaternion.identity);
                 }
 
                 // Reset the time and set a new random delay

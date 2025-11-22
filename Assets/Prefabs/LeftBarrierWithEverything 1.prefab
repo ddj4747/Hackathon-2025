@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.42, y: -1.24, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5421373067762194364}
@@ -45,29 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Path
   _pathWaypoints:
-  - _x: 28.5
-    _y: 16.7
+  - _x: 5.73
+    _y: 4.65
     _curve: 1
     _curveFactor: 1
-  - _x: 39.4
-    _y: 5.84
+  - _x: 9.07
+    _y: 1.11
+    _curve: 1
+    _curveFactor: 1.02
+  - _x: 5.73
+    _y: -2.14
     _curve: 1
     _curveFactor: 1
-  - _x: 27.8
-    _y: -3.71
-    _curve: 1
-    _curveFactor: 1
-  - _x: 17.7
-    _y: 5.7
+  - _x: 2.14
+    _y: 1.11
     _curve: 1
     _curveFactor: 1
   _enemySpawnOptions:
-  - _spawnDelay: 1
-    _amount: 3
-    _enemy: {fileID: 2829556861445625655, guid: 672905ea9acc8b648964742b2c773669, type: 3}
-  - _spawnDelay: 1
-    _amount: 3
-    _enemy: {fileID: 2829556861445625655, guid: 672905ea9acc8b648964742b2c773669, type: 3}
   - _spawnDelay: 1
     _amount: 3
     _enemy: {fileID: 2829556861445625655, guid: 672905ea9acc8b648964742b2c773669, type: 3}
