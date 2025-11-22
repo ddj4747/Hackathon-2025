@@ -1,3 +1,4 @@
+using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -33,6 +34,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
+        }
+        else if (collision.gameObject.tag == "barrier")
+        {
+            Destroy(gameObject);
         }
     }
 
