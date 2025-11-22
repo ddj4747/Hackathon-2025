@@ -245,93 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0797dd9d4cf8d9344a490fbb1addab30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfoBoxScript
---- !u!1001 &523663749
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807470062563151827, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6748119295077453108, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      propertyPath: m_Name
-      value: Final_boss
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6748119295077453108, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 523663751}
-  m_SourcePrefab: {fileID: 100100000, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
---- !u!1 &523663750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6748119295077453108, guid: 80b1ea2670c56374b97cc65eda3d0ece, type: 3}
-  m_PrefabInstance: {fileID: 523663749}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &523663751
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523663750}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40a2c70c273221e4ea31a5e399f9f5bc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &628329599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,22 +1063,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 10012380626847439, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 91.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 10012380626847439, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2257845582908741275, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2257845582908741275, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3296059013595938479, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
       propertyPath: m_Name
       value: DialogBox start message
@@ -1642,4 +1539,3 @@ SceneRoots:
   - {fileID: 8410386781788122426}
   - {fileID: 1909375468}
   - {fileID: 1566373728}
-  - {fileID: 523663749}
