@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Path
   _pathWaypoints:
   - _x: -1.86
-    _y: 11.3
+    _y: 16.5
     _curve: 0
     _curveFactor: 0
   - _x: -1.91
@@ -67,10 +67,10 @@ MonoBehaviour:
     _curveFactor: 0.24
   - _x: -13.9
     _y: 11.08
-    _curve: 0
-    _curveFactor: 0.24
+    _curve: 1
+    _curveFactor: 3.52
   - _x: -1.66
-    _y: 11.74
+    _y: 27.8
     _curve: 0
     _curveFactor: 0.24
   _enemySpawnOptions:
