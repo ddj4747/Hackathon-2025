@@ -7,34 +7,47 @@ public class Missile : MonoBehaviour
 
     private Vector2 dir = new();
     private float lifeTimeTimer = 0;
+    private float damageRange = 2;
+
+    private Rigidbody2D rb;
 
     private void BlowUp()
     {
+        if (Vector3.Distance(PlayerMovement.Instance.transform.position, transform.position) < damageRange)
+        {
+            PlayerMovement.Instance.HealthComponent.TakeDamage(damage);
+        }
 
+        Destroy(gameObject);
     }
+
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         dir = transform.rotation * Vector2.up;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        lifeTimeTimer += Time.deltaTime;
-        transform.position += new Vector3(dir.x * speed * Time.deltaTime, dir.y * speed * Time.deltaTime);
+        lifeTimeTimer += Time.fixedDeltaTime;
 
-        if (lifeTimeTimer > 5)
+        Vector3 targetDir = PlayerMovement.Instance.transform.position - transform.position;
+        Vector2 moveDir = targetDir.normalized;
+        rb.MovePosition(rb.position + moveDir * speed * Time.fixedDeltaTime);
+
+        if (lifeTimeTimer > 20)
         {
-            Destroy(gameObject);
+            BlowUp();
         }
     }
 
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == tag)
         {
-            Destroy(gameObject);
-            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
+            BlowUp();
         }
     }
 }

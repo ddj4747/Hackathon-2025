@@ -1,5 +1,5 @@
 using DG.Tweening;
-using System.Collections.Generic;
+
 using System.Collections;
 using UnityEngine;
 
@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
 
         float duration = pathLength / _speed;
 
+        _moveSeq?.Kill();
+        _moveSeq = DOTween.Sequence();
         _moveSeq.Append(transform.DOPath(_path._pathSegments.ToArray(), duration, PathType.Linear, PathMode.TopDown2D)
             .SetEase(Ease.Linear)
             .SetId(this))
@@ -65,12 +67,9 @@ public class Enemy : MonoBehaviour
 
     public void OnDeath()
     {
-        Debug.Log("death");
         _moveSeq?.OnComplete(null);
         _moveSeq?.Kill();
         StopAllCoroutines();
-        Destroy(this);
+        Destroy(gameObject);
     }
-
-
 }
