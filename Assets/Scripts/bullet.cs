@@ -1,12 +1,14 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float speed;
+    public float damage;
+    public string tag;
 
     private Vector2 dir = new();
     private float lifeTimeTimer = 0;
+
 
     void Start()
     {
@@ -21,6 +23,20 @@ public class bullet : MonoBehaviour
         if (lifeTimeTimer > 5)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == tag)
+        {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
+
+            if (collision.gameObject.tag == "enemy")
+            {
+                collision.gameObject.GetComponent<ParticleSystem>().Play();
+            }
         }
     }
 

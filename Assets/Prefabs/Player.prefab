@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3020770632496606784}
   - component: {fileID: 7646643780603065976}
   - component: {fileID: 5485898083787416215}
+  - component: {fileID: 6406489373688145820}
+  - component: {fileID: 4106983632065362123}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   shootAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  _movementSpeed: 45
+  _movementSpeed: 10
   shootingComponent1: {fileID: 245643059451939890}
   shootingComponent2: {fileID: 2777932500277685350}
 --- !u!50 &5485898083787416215
@@ -137,7 +139,72 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &6406489373688145820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874265728459700877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8048a4075da3a284abed63604f821a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _maxHealth: 100
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &4106983632065362123
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874265728459700877}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.01939708, y: -0.19073874}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2.75}
+    newSize: {x: 2.23, y: 2.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.4870206, y: 1.2434865}
+  m_EdgeRadius: 0
 --- !u!1001 &5049600661143736256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006729566289429490, guid: 6510b26285e6fe74d843e7061a66211b, type: 3}
       propertyPath: cooldown
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5006729566289429490, guid: 6510b26285e6fe74d843e7061a66211b, type: 3}
       propertyPath: bulletPrefab
@@ -231,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingComponent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5006729566289429490, guid: 6510b26285e6fe74d843e7061a66211b, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7928288091582284066, guid: e35dfa0019d5c754e8501161a55ba479, type: 3}
     - target: {fileID: 7797094866085626850, guid: 6510b26285e6fe74d843e7061a66211b, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.3333333

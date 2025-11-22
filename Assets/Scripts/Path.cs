@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
+
 
 
 #if UNITY_EDITOR
@@ -34,6 +36,7 @@ public class Path : MonoBehaviour
 
     [HideInInspector] public List<Vector3> _pathSegments;
 
+    private int counter = 0;
     private IEnumerator SpawnEnemies()
     {
         foreach (var option in _enemySpawnOptions)
@@ -42,8 +45,20 @@ public class Path : MonoBehaviour
             {
                 Enemy enemy = Instantiate(option._enemy);
                 enemy._path = this;
+                counter++;
+                enemy.HealthComponent.OnDeath.AddListener(OnDeathH);
                 yield return new WaitForSeconds(option._spawnDelay);
             }
+        }
+    }
+
+    private void OnDeathH()
+    {
+        counter--;
+
+        if (counter == 0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -52,7 +67,6 @@ public class Path : MonoBehaviour
         _pathSegments = new List<Vector3>();
         for (int i = 0; i < _pathWaypoints.Length - 1; i++)
         {
-            
             _pathSegments.AddRange(GetSegmentPoints(
                 _pathWaypoints[i],
                 new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
@@ -100,7 +114,7 @@ public class Path : MonoBehaviour
 
 
     [Header("Path Settings")]
-    [SerializeField] bool loop = false;
+    public bool loop = false;
 
     [Header("Visual Settings")]
     [SerializeField] Color waypointColor = Color.yellow;

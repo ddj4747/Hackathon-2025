@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &80804654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80804656}
+  - component: {fileID: 80804655}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &80804655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80804654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066cc128e82075f45ac3dee05b55aae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bullet
+  speed: 0
+--- !u!4 &80804656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80804654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.32292, y: -1.04247, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434784993
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,18 +211,18 @@ MonoBehaviour:
     _curve: 1
     _curveFactor: 5
   _enemySpawnOptions:
-  - _spawnDelay: 0.3
-    _amount: 5
-    _enemy: {fileID: 7840679929445388450, guid: 56159eebc9e51dc438fae2be0dbd1652, type: 3}
   - _spawnDelay: 1
-    _amount: 3
-    _enemy: {fileID: 7840679929445388450, guid: 56159eebc9e51dc438fae2be0dbd1652, type: 3}
+    _amount: 5
+    _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
   - _spawnDelay: 2
+    _amount: 3
+    _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
+  - _spawnDelay: 3
     _amount: 2
-    _enemy: {fileID: 7840679929445388450, guid: 56159eebc9e51dc438fae2be0dbd1652, type: 3}
-  - _spawnDelay: 0.2
+    _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
+  - _spawnDelay: 2
     _amount: 10
-    _enemy: {fileID: 7840679929445388450, guid: 56159eebc9e51dc438fae2be0dbd1652, type: 3}
+    _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
   _pathSegments: []
   loop: 1
   waypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -343,3 +388,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1564296070}
   - {fileID: 434784995}
+  - {fileID: 80804656}

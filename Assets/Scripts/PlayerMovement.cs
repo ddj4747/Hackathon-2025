@@ -1,6 +1,7 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(HealthComponent))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveAction;
@@ -13,9 +14,15 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private bool wasLastShotLeft = false;
 
+
+    public HealthComponent HealthComponent { get; private set; }
+    public static PlayerMovement Instance { get; private set; }
+
     private void Awake()
     {
+        Instance = this;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        HealthComponent = GetComponent<HealthComponent>();
     }
 
 
@@ -39,9 +46,6 @@ public class PlayerMovement : MonoBehaviour
         moveAction.action.started += OnMove;
         moveAction.action.performed += OnMove;
         moveAction.action.canceled += OnMove;
-        //shootAction.action.started += onShoot;
-        //shootAction.action.performed += onShoot;
-        //shootAction.action.canceled += onShoot;
     }
 
     // Update is called once per frame
