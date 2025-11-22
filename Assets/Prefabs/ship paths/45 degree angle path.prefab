@@ -65,6 +65,11 @@ MonoBehaviour:
     _y: 4.8
     _curve: 0
     _curveFactor: 0
+  _enemySpawnOptions:
+  - _spawnDelay: 0
+    _amount: 0
+    _enemy: {fileID: 0}
+  _pathSegments: []
   loop: 1
   waypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lineColor: {r: 1, g: 1, b: 1, a: 1}
