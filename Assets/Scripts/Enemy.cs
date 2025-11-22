@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _speed;
     [SerializeField] private Bullet _bullet;
+    [SerializeField] private Vector3 _attackOffset;
     
 
     [Header("Info")]
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(_bullet, transform.position, transform.rotation);
+            Instantiate(_bullet, _attackOffset + transform.position, transform.rotation);
             yield return new WaitForSeconds(_attackSpeed);
         }
     }
@@ -48,7 +49,14 @@ public class Enemy : MonoBehaviour
             .SetId(this))
             .OnComplete(() =>
             {
-                MoveToWaipoint();
+                if (_path.loop)
+                {
+                    MoveToWaipoint();
+                } 
+                else
+                {
+                    OnDeath();
+                }
             });
     }
 

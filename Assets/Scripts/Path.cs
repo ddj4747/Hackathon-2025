@@ -52,7 +52,6 @@ public class Path : MonoBehaviour
         _pathSegments = new List<Vector3>();
         for (int i = 0; i < _pathWaypoints.Length - 1; i++)
         {
-            
             _pathSegments.AddRange(GetSegmentPoints(
                 _pathWaypoints[i],
                 new Vector3(_pathWaypoints[i]._x, _pathWaypoints[i]._y),
@@ -100,7 +99,7 @@ public class Path : MonoBehaviour
 
 
     [Header("Path Settings")]
-    [SerializeField] bool loop = false;
+    public bool loop = false;
 
     [Header("Visual Settings")]
     [SerializeField] Color waypointColor = Color.yellow;
