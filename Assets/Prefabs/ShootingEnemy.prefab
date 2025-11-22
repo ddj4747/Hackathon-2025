@@ -157,7 +157,7 @@ MonoBehaviour:
   _speed: 1.5
   _bullet: {fileID: 3166506461366107561, guid: dbb595211edb43a4ca300d6ac432ce76, type: 3}
   _attackOffset: {x: 0, y: 0, z: 0}
-  _passive: 0
+  _passive: 1
   _path: {fileID: 0}
 --- !u!50 &8368863497680093076
 Rigidbody2D:
