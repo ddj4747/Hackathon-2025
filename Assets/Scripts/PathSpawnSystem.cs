@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using DG.Tweening;
 
 public class PathManager : MonoBehaviour
 {
@@ -11,14 +13,30 @@ public class PathManager : MonoBehaviour
     private float randomDelay = 0f;
     public InfoBoxScript InfoBoxScript;
 
-    public static int WaveCounter = 0;
+    public Enemy _finalBoss;
+    public Transform _start;
+    public Transform _end;
+
+    public static int WaveCounter = 1;
+
+    public static int EnemyLeft = 0;
 
     void Start()
     {
         // Initialize with a random delay to wait before spawning the first path
         SetRandomDelay();
-        WaveCounter = 0;
+        WaveCounter = 1;
         
+    }
+
+    private IEnumerator BossEntrance()
+    {
+        Enemy enemy = Instantiate(_finalBoss, _start);
+        yield return enemy.transform
+            .DOMove(_end.position, 2f)
+            .SetEase(Ease.InOutSine)
+            .WaitForCompletion();
+
     }
 
     void Update()
@@ -32,13 +50,27 @@ public class PathManager : MonoBehaviour
             // If enough time has passed, instantiate a new path
             if (timeSinceLastSpawn >= randomDelay)
             {
+                if (EnemyLeft != 0)
+                {
+                    return;
+                }
+
                 // Pick a random path and instantiate it
                 Path chosenPath = GetRandomPath();
                 if (chosenPath != null)
                 {
-                    // Instantiate the Path prefab at the origin (or modify as necessary)
-                    Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
-                    WaveCounter++;
+                    if (WaveCounter % 6 == 0)
+                    {
+                        StartCoroutine(BossEntrance());
+                        EnemyLeft++;
+                        randomDelay = 30;
+                        WaveCounter++;
+                    }
+                    else
+                    {
+                        Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
+                        WaveCounter++;
+                    }
                 }
 
                 // Reset the time and set a new random delay

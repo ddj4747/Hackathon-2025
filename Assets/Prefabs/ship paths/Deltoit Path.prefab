@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b9c38050e22d446aa254635b3f2102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Path
-  pathPrefab: {fileID: 0}
   _pathWaypoints:
   - _x: -2.09
-    _y: 12.85
+    _y: 16.6
     _curve: 0
     _curveFactor: 0
   - _x: -2.07
@@ -107,12 +106,12 @@ MonoBehaviour:
     _curve: 1
     _curveFactor: -0.25
   - _x: -2.58
-    _y: 13.4
+    _y: 15.3
     _curve: 0
     _curveFactor: -0.25
   _enemySpawnOptions:
-  - _spawnDelay: 0.3
-    _amount: 3
+  - _spawnDelay: 1.2
+    _amount: 4
     _enemy: {fileID: 4187638726345109631, guid: 6d302f0b2ced1d24ea2764826fb81211, type: 3}
   _pathSegments: []
   loop: 0

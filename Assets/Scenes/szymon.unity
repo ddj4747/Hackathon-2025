@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 1563484442}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,10 +862,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.12174941
+    y: 0.12184875
+    width: 0.7565012
+    height: 0.75630254
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 96
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 1566373728}
   - component: {fileID: 1566373729}
   m_Layer: 0
-  m_Name: healthBar
+  m_Name: hSiusiek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,22 +1063,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 10012380626847439, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 91.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 10012380626847439, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2257845582908741275, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2257845582908741275, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3296059013595938479, guid: e906c53a33aaaf94e968124f88a126f3, type: 3}
       propertyPath: m_Name
       value: DialogBox start message
@@ -1523,6 +1507,22 @@ PrefabInstance:
       propertyPath: InfoBoxScript
       value: 
       objectReference: {fileID: 464533706}
+    - target: {fileID: 7139920849183624022, guid: 14473c2b77eb49042b50013fd829e64a, type: 3}
+      propertyPath: availablePaths.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139920849183624022, guid: 14473c2b77eb49042b50013fd829e64a, type: 3}
+      propertyPath: 'availablePaths.Array.data[6]'
+      value: 
+      objectReference: {fileID: 7851432455972630123, guid: 959c12804e76ac24995138e198c8fcd4, type: 3}
+    - target: {fileID: 7139920849183624022, guid: 14473c2b77eb49042b50013fd829e64a, type: 3}
+      propertyPath: 'availablePaths.Array.data[7]'
+      value: 
+      objectReference: {fileID: 7851432455972630123, guid: 959c12804e76ac24995138e198c8fcd4, type: 3}
+    - target: {fileID: 7139920849183624022, guid: 14473c2b77eb49042b50013fd829e64a, type: 3}
+      propertyPath: 'availablePaths.Array.data[8]'
+      value: 
+      objectReference: {fileID: 7851432455972630123, guid: 959c12804e76ac24995138e198c8fcd4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
