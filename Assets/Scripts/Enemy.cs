@@ -1,5 +1,5 @@
 using DG.Tweening;
-using System.Collections.Generic;
+
 using System.Collections;
 using UnityEngine;
 
@@ -72,6 +72,4 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
         Destroy(gameObject);
     }
-
-
 }
