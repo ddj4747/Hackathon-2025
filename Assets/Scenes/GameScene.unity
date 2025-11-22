@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341736671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,20 +149,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Path
   _pathWaypoints:
-  - _x: -7
+  - _x: 0
     _y: 2
     _curve: 0
-    _curveFactor: 0
-  - _x: 7
+    _curveFactor: 20
+  - _x: 14
     _y: 2
     _curve: 0
-    _curveFactor: 0
+    _curveFactor: 20
   _enemySpawnOptions:
   - _spawnDelay: 1
     _amount: 1
     _enemy: {fileID: 7765316899168879399, guid: 74c0b76553cf9934c84bff98bbbff04a, type: 3}
   _pathSegments: []
-  loop: 1
+  loop: 0
   waypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lineColor: {r: 1, g: 1, b: 1, a: 1}
   curveColor: {r: 0, g: 1, b: 1, a: 1}
@@ -366,6 +366,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1001 &1091709649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.17709
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22221
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045316697691334, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133245143832889638, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
+      propertyPath: m_Name
+      value: Singletons
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6be8c95468496c84a986dc1020c95589, type: 3}
 --- !u!1 &1121519901
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,10 +479,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.09436352
-    y: 0.0945946
-    width: 0.8106396
-    height: 0.8108108
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 96
@@ -864,6 +921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftBarrierWithEverything 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7488444390993363507, guid: 71f78ad82a2f6d04183ce45227ee5f00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1040,3 +1101,4 @@ SceneRoots:
   - {fileID: 1345239462503928231}
   - {fileID: 341736672}
   - {fileID: 2066211319}
+  - {fileID: 1091709649}
