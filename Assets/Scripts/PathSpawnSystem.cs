@@ -37,6 +37,7 @@ public class PathManager : MonoBehaviour
                 }
 
                 // Reset the time and set a new random delay
+                
                 timeSinceLastSpawn = 0f;
                 SetRandomDelay();
             }

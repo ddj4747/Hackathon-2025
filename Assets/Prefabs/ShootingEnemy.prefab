@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6571649401613872438}
   - component: {fileID: 6984762473947302446}
   - component: {fileID: 9197351474873561581}
-  - component: {fileID: -30215636540421113327}
+  - component: {fileID: -3021563540421113327}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: enemy

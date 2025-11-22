@@ -34,6 +34,7 @@ public class InfoBoxScript : MonoBehaviour
         else
         {
             // On the last string, destroy the parent and the Canvas
+            spaceBar.action.started -= onSpace;
             spawningEnemies = true;
             Destroy(tmpText.gameObject.transform.parent.parent.gameObject);  // Destroys the entire Canvas + Text
         }

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b9c38050e22d446aa254635b3f2102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Path
+  pathPrefab: {fileID: 0}
   _pathWaypoints:
   - _x: -11.31
     _y: 13.62
