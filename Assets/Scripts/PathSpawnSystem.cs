@@ -5,35 +5,41 @@ public class PathManager : MonoBehaviour
     [Header("Available Paths")]
     // Create an array or list of paths (Path objects are references to your Path Scriptable Objects or prefabs)
     public Path[] availablePaths;
-
-    private float timeSinceLastSpawn = 0f;
+    [SerializeField] private float minRange = 10;
+    [SerializeField] private float maxRange = 20;
+    private float timeSinceLastSpawn = 100f;
     private float randomDelay = 0f;
-  
+    public InfoBoxScript InfoBoxScript;
     void Start()
     {
         // Initialize with a random delay to wait before spawning the first path
         SetRandomDelay();
+        
     }
 
     void Update()
     {
-        // Accumulate time
-        timeSinceLastSpawn += Time.deltaTime;
-        
-        // If enough time has passed, instantiate a new path
-        if (timeSinceLastSpawn >= randomDelay)
+        if (InfoBoxScript.spawningEnemies)
         {
-            // Pick a random path and instantiate it
-            Path chosenPath = GetRandomPath();
-            if (chosenPath != null)
-            {
-                // Instantiate the Path prefab at the origin (or modify as necessary)
-                Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity); 
-            }
 
-            // Reset the time and set a new random delay
-            timeSinceLastSpawn = 0f;
-            SetRandomDelay();
+            // Accumulate time
+            timeSinceLastSpawn += Time.deltaTime;
+
+            // If enough time has passed, instantiate a new path
+            if (timeSinceLastSpawn >= randomDelay)
+            {
+                // Pick a random path and instantiate it
+                Path chosenPath = GetRandomPath();
+                if (chosenPath != null)
+                {
+                    // Instantiate the Path prefab at the origin (or modify as necessary)
+                    Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
+                }
+
+                // Reset the time and set a new random delay
+                timeSinceLastSpawn = 0f;
+                SetRandomDelay();
+            }
         }
         
     }
@@ -55,6 +61,6 @@ public class PathManager : MonoBehaviour
     // Method to set a random delay between path spawns
     private void SetRandomDelay()
     {
-        randomDelay = Random.Range(2f, 10f); // Set random delay between 2 and 10 seconds
+        randomDelay = Random.Range(minRange, maxRange); // Set random delay between 2 and 10 seconds
     }
 }

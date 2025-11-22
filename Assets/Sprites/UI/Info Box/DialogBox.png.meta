@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 77cbb4fd1daa1bf41a06c3788dd50304
+guid: 8352c3a23e7910d4b8f05e200b191f6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8140593895237489223
-    second: PlayerBullet_0
+      213: -7212743939725961781
+    second: DialogBox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerBullet_0
+      name: DialogBox_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 16
-        height: 16
+        y: 15
+        width: 256
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 742185a540339f070800000000000000
-      internalID: 8140593895237489223
+      spriteID: bc558c00a9f27eb90800000000000000
+      internalID: -7212743939725961781
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerBullet_0: 8140593895237489223
+      DialogBox_0: -7212743939725961781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
