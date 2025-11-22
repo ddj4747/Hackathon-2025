@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-using static enemyParticleSystem;
 
 [RequireComponent (typeof(HealthComponent), typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
@@ -13,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float _attackSpeed;
     public float _speed;
     public Bullet _bullet;
-    [SerializeField] private Vector3 _attackOffset;
+    public Vector3 _attackOffset;
     [SerializeField] private bool _passive;
 
     private Rigidbody2D rb;
@@ -40,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private Vector3 _lastPosition; // Add this variable
+    private Vector3 _lastPosition;
     
 
     private void MoveToWaipoint()
@@ -104,6 +103,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    private bool isDead = false;
     public void OnDeath()
     {
         enemyParticleSystem.playDeathParticles(transform.position);
@@ -112,10 +113,16 @@ public class Enemy : MonoBehaviour
         _moveSeq?.Kill();
         StopAllCoroutines();
         Destroy(gameObject);
+        isDead = true;
     }
 
     public void OnHealthChange(float ss)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         enemyParticleSystem.playDamageParticles(transform.position, Quaternion.Euler(transform.up));
     }
 }

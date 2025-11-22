@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "exitLobby",
+                    "type": "Button",
+                    "id": "a1e433d7-a3a0-4da6-97c4-a2041c6e1710",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -436,6 +445,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "spaceBar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "802d1856-d5ab-4526-8320-19366a37554b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "exitLobby",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

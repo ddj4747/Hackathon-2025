@@ -119,70 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &341736670
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 341736672}
-  - component: {fileID: 341736671}
-  m_Layer: 0
-  m_Name: pTH
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &341736671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341736670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b9c38050e22d446aa254635b3f2102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Path
-  _pathWaypoints:
-  - _x: -7
-    _y: 2
-    _curve: 0
-    _curveFactor: 0
-  - _x: 7
-    _y: 2
-    _curve: 0
-    _curveFactor: 0
-  _enemySpawnOptions:
-  - _spawnDelay: 1
-    _amount: 1
-    _enemy: {fileID: 7765316899168879399, guid: 74c0b76553cf9934c84bff98bbbff04a, type: 3}
-  _pathSegments: []
-  loop: 1
-  waypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
-  curveColor: {r: 0, g: 1, b: 1, a: 1}
-  waypointSize: 0.05
-  curveSegments: 20
---- !u!4 &341736672
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341736670}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.89634, y: 0.54403, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455002208
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 7658826655442441627, guid: 8a243fb3a81aab94b8471d8705dd1ec7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658826655442441627, guid: 8a243fb3a81aab94b8471d8705dd1ec7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
