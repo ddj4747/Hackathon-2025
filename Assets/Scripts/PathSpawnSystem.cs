@@ -17,15 +17,15 @@ public class PathManager : MonoBehaviour
     public Transform _start;
     public Transform _end;
 
-    public static int WaveCounter = 0;
+    public static int WaveCounter = 1;
 
-
+    public static int EnemyLeft = 0;
 
     void Start()
     {
         // Initialize with a random delay to wait before spawning the first path
         SetRandomDelay();
-        WaveCounter = 0;
+        WaveCounter = 1;
         
     }
 
@@ -50,6 +50,11 @@ public class PathManager : MonoBehaviour
             // If enough time has passed, instantiate a new path
             if (timeSinceLastSpawn >= randomDelay)
             {
+                if (EnemyLeft != 0)
+                {
+                    return;
+                }
+
                 // Pick a random path and instantiate it
                 Path chosenPath = GetRandomPath();
                 if (chosenPath != null)
@@ -57,6 +62,7 @@ public class PathManager : MonoBehaviour
                     if (WaveCounter % 6 == 0)
                     {
                         StartCoroutine(BossEntrance());
+                        EnemyLeft++;
                         randomDelay = 30;
                         WaveCounter++;
                     }
