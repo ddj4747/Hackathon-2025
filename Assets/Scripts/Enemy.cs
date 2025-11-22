@@ -96,6 +96,8 @@ public class Enemy : MonoBehaviour
 
         _moveSeq = DOTween.Sequence();
 
+        PathManager.EnemyLeft++;
+
         MoveToWaipoint();
         if (!_passive) 
         { 
@@ -114,6 +116,7 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
         Destroy(gameObject);
         isDead = true;
+        PathManager.EnemyLeft--;
     }
 
     public void OnHealthChange(float ss)

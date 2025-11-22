@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464e210563c15bc47ae7d8759b169647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _parent: {fileID: 0}
+  _parent: {fileID: 5056903172944826846}
 --- !u!60 &1218736572421364512
 PolygonCollider2D:
   m_ObjectHideFlags: 0
