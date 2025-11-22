@@ -46,6 +46,7 @@ public class Path : MonoBehaviour
                 Enemy enemy = Instantiate(option._enemy);
                 enemy._path = this;
                 counter++;
+                Debug.Log(enemy + " " + enemy.HealthComponent);
                 enemy.HealthComponent.OnDeath.AddListener(() => OnDeathH());
                 yield return new WaitForSeconds(option._spawnDelay);
             }
@@ -62,7 +63,7 @@ public class Path : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void Start()
     {
         _pathSegments = new List<Vector3>();
         for (int i = 0; i < _pathWaypoints.Length - 1; i++)

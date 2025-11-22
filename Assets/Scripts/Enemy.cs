@@ -9,10 +9,10 @@ public class Enemy : MonoBehaviour
     public HealthComponent HealthComponent { get; private set; }
 
     [Header("Stats")]
-    [SerializeField] private float _damage;
-    [SerializeField] private float _attackSpeed;
-    [SerializeField] private float _speed;
-    [SerializeField] private Bullet _bullet;
+    public float _damage;
+    public float _attackSpeed;
+    public float _speed;
+    public Bullet _bullet;
     [SerializeField] private Vector3 _attackOffset;
     [SerializeField] private bool _passive;
 
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        HealthComponent = GetComponent<HealthComponent>();
     }
 
     private IEnumerator AttackLoop()
@@ -77,7 +78,6 @@ public class Enemy : MonoBehaviour
     {
         Vector3 v = (transform.position - last) / Time.deltaTime;
         last = transform.position;
-        Debug.Log(v);
 
         if (v.sqrMagnitude > 0.01f)
         {
