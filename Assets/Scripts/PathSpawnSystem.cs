@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using DG.Tweening;
 
 public class PathManager : MonoBehaviour
 {
@@ -11,7 +13,13 @@ public class PathManager : MonoBehaviour
     private float randomDelay = 0f;
     public InfoBoxScript InfoBoxScript;
 
+    public Enemy _finalBoss;
+    public Transform _start;
+    public Transform _end;
+
     public static int WaveCounter = 0;
+
+
 
     void Start()
     {
@@ -19,6 +27,16 @@ public class PathManager : MonoBehaviour
         SetRandomDelay();
         WaveCounter = 0;
         
+    }
+
+    private IEnumerator BossEntrance()
+    {
+        Enemy enemy = Instantiate(_finalBoss, _start);
+        yield return enemy.transform
+            .DOMove(_end.position, 2f)
+            .SetEase(Ease.InOutSine)
+            .WaitForCompletion();
+
     }
 
     void Update()
@@ -36,9 +54,17 @@ public class PathManager : MonoBehaviour
                 Path chosenPath = GetRandomPath();
                 if (chosenPath != null)
                 {
-                    // Instantiate the Path prefab at the origin (or modify as necessary)
-                    Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
-                    WaveCounter++;
+                    if (WaveCounter % 6 == 0)
+                    {
+                        StartCoroutine(BossEntrance());
+                        randomDelay = 30;
+                        WaveCounter++;
+                    }
+                    else
+                    {
+                        Instantiate(chosenPath.gameObject, Vector3.zero, Quaternion.identity);
+                        WaveCounter++;
+                    }
                 }
 
                 // Reset the time and set a new random delay
