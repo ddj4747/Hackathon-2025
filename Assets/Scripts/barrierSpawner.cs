@@ -13,7 +13,7 @@ public class barrierSpawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 10)
+        if(timer > 30)
         {
             spawnLeftBarrier();
             timer = 0;
