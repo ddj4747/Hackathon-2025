@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    public float speed;
-    public float damage;
+    public float speed = 5f;
+    public float damage = 10f;
+    public string _tag;
 
-    private Vector2 dir = new();
-    private float lifeTimeTimer = 0;
-    private float damageRange = 2;
+    // Maximum total rotation from initial launch direction
+    public float maxRotationFromStart = 45f;
 
+    // Rotation speed in degrees per second
+    public float rotationSpeed = 120f;
+
+    private Vector2 dir;
+    private Vector2 startDir;
+    private float lifeTimeTimer = 0f;
+    private float damageRange = 5f;
     private Rigidbody2D rb;
 
     private void BlowUp()
@@ -21,33 +28,51 @@ public class Missile : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        dir = transform.rotation * Vector2.up;
+        dir = transform.up;
+        startDir = dir;
     }
 
     void FixedUpdate()
     {
         lifeTimeTimer += Time.fixedDeltaTime;
 
-        Vector3 targetDir = PlayerMovement.Instance.transform.position - transform.position;
-        Vector2 moveDir = targetDir.normalized;
-        rb.MovePosition(rb.position + moveDir * speed * Time.fixedDeltaTime);
+        // Desired direction toward player
+        Vector2 targetDir = ((Vector2)PlayerMovement.Instance.transform.position - (Vector2)transform.position).normalized;
 
-        if (lifeTimeTimer > 20)
+        // Clamp total rotation from start
+        float angleFromStart = Vector2.SignedAngle(startDir, targetDir);
+        if (Mathf.Abs(angleFromStart) > maxRotationFromStart)
         {
-            BlowUp();
+            float clampedAngle = Mathf.Sign(angleFromStart) * maxRotationFromStart;
+            float startAngleRad = Mathf.Atan2(startDir.y, startDir.x);
+            float newAngleRad = startAngleRad + clampedAngle * Mathf.Deg2Rad;
+            targetDir = new Vector2(Mathf.Cos(newAngleRad), Mathf.Sin(newAngleRad)).normalized;
         }
+
+        // Rotate dir gradually toward clamped targetDir
+        float angleBetween = Vector2.SignedAngle(dir, targetDir);
+        float maxTurnThisFrame = rotationSpeed * Time.fixedDeltaTime;
+        float clampedTurn = Mathf.Clamp(angleBetween, -maxTurnThisFrame, maxTurnThisFrame);
+        float newDirAngle = Mathf.Atan2(dir.y, dir.x) + clampedTurn * Mathf.Deg2Rad;
+        dir = new Vector2(Mathf.Cos(newDirAngle), Mathf.Sin(newDirAngle)).normalized;
+
+        // Move
+        rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
+
+        // Rotate sprite
+        float spriteAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        rb.MoveRotation(spriteAngle);
+
+        if (lifeTimeTimer > 20f)
+            BlowUp();
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == tag)
-        {
+        if (collision.gameObject.CompareTag(_tag))
             BlowUp();
-        }
     }
 }
