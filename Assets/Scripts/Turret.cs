@@ -5,6 +5,17 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private Enemy _parent;
 
+    [SerializeField] private Transform _firePoint;
+
+    private void Start()
+    {
+        if (_firePoint == null)
+        {
+            _firePoint = transform;
+        }
+        StartCoroutine(AttackLoop());
+    }
+
     private IEnumerator AttackLoop()
     {
         while (true)
@@ -16,24 +27,7 @@ public class Turret : MonoBehaviour
 
     private void Attack()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        // 1. Get simple direction
-        Vector3 direction = PlayerMovement.Instance.transform.position - _parent.transform.position;
-
-        // 2. Calculate angle
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // 3. Apply rotation
-        // NOTE: If your sprite faces UP, add -90 to the angle: (angle - 90)
-        transform.rotation = Quaternion.LookRotation(_parent.transform.position, direction);
-    }
-
-    private void Start()
-    {
-        StartCoroutine(AttackLoop());
+        Instantiate(_parent._bullet, transform.position, transform.rotation * Quaternion.Euler(0, 0, 90));
+        Instantiate(_parent._bullet, transform.position, transform.rotation * Quaternion.Euler(0, 0, -90));
     }
 }

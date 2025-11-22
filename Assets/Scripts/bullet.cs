@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public float damage;
-    public string tag;
+    public string _tag;
 
     private Vector2 dir = new();
     private float lifeTimeTimer = 0;
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == tag)
+        if(collision.gameObject.tag == _tag)
         {
             Destroy(gameObject);
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1636249052319587856}
   - component: {fileID: 7765316899168879399}
   - component: {fileID: 6893239517312493119}
+  - component: {fileID: 5856750436873971443}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: enemy
@@ -137,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927afdd24718332438e95216c12fb37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  _damage: 0
-  _attackSpeed: 0
-  _speed: 5
+  _damage: 1
+  _attackSpeed: 0.8
+  _speed: 6
   _bullet: {fileID: 3166506461366107561, guid: dbb595211edb43a4ca300d6ac432ce76, type: 3}
   _attackOffset: {x: 0, y: 0, z: 0}
   _passive: 1
@@ -152,7 +153,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884560593513025836}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -170,7 +171,53 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!61 &5856750436873971443
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884560593513025836}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.011533678, y: 0.5478457}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.75, y: 5.9375}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.9046253, y: 3.84992}
+  m_EdgeRadius: 0
 --- !u!1 &8194597257026927216
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,3 +322,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _parent: {fileID: 7765316899168879399}
+  _firePoint: {fileID: 0}
