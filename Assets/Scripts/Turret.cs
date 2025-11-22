@@ -21,11 +21,15 @@ public class Turret : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Vector2 direction = PlayerMovement.Instance.transform.position - _parent.transform.position - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0, 0, _parent.transform.rotation.z + angle);
+        // 1. Get simple direction
+        Vector3 direction = PlayerMovement.Instance.transform.position - _parent.transform.position;
 
-        transform.rotation = Quaternion.FromToRotation(transform.position, PlayerMovement.Instance.transform.position);
+        // 2. Calculate angle
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // 3. Apply rotation
+        // NOTE: If your sprite faces UP, add -90 to the angle: (angle - 90)
+        transform.rotation = Quaternion.LookRotation(_parent.transform.position, direction);
     }
 
     private void Start()

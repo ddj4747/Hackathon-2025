@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-using static enemyParticleSystem;
 
 [RequireComponent (typeof(HealthComponent), typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
@@ -104,6 +103,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    private bool isDead = false;
     public void OnDeath()
     {
         enemyParticleSystem.playDeathParticles(transform.position);
@@ -112,10 +113,16 @@ public class Enemy : MonoBehaviour
         _moveSeq?.Kill();
         StopAllCoroutines();
         Destroy(gameObject);
+        isDead = true;
     }
 
     public void OnHealthChange(float ss)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         enemyParticleSystem.playDamageParticles(transform.position, Quaternion.Euler(transform.up));
     }
 }
