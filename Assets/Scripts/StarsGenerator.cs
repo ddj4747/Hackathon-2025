@@ -65,7 +65,7 @@ public class StarsGenerator : MonoBehaviour
         Star chosen = PickStar(out int starIndex);
         if (chosen.prefab != null)
         {
-            float randomY = UnityEngine.Random.Range(-12f, 13f);
+            float randomY = UnityEngine.Random.Range(-12f, 18f);
             float randomX = UnityEngine.Random.Range(-20f, 20f);
 
             // Only check for overlap if this is a planet 8 or 9
