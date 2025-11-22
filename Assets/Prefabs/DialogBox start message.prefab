@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3296059013595938479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.8, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -126,8 +126,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.5, y: -85.75}
-  m_SizeDelta: {x: 161, y: 111.5}
+  m_AnchoredPosition: {x: 13.5, y: -95.75}
+  m_SizeDelta: {x: 161, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5459063762921828288
 CanvasRenderer:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 8
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -246,9 +246,10 @@ MonoBehaviour:
   delayBetweenLetters: 0.02
   spaceBar: {fileID: -8685254286513884942, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   textList:
-  - boss
-  - scary
-  - lol
+  - Welcome, Captain. Our planet has been attacked by the Sythraki..
+  - Destroy enemy ships and the barrier power generators to prevent them from sealing
+    our orbit and destroy their mothership.
+  - 'Movement: [WASD] Fire: [SPACE]'
   spawningEnemies: 0
 --- !u!1 &4468434479448578448
 GameObject:
