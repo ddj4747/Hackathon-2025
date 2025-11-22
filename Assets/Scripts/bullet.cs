@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(damage);
+            collision.gameObject.GetComponent<ParticleSystem>().Play();
         }
     }
 
