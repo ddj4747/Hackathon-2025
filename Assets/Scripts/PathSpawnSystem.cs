@@ -35,7 +35,9 @@ public class PathManager : MonoBehaviour
         yield return enemy.transform
             .DOMove(_end.position, 2f)
             .SetEase(Ease.InOutSine)
-            .WaitForCompletion();
+            .OnComplete(() => {
+                
+            });
 
     }
 

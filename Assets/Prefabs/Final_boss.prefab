@@ -160,6 +160,7 @@ MonoBehaviour:
   _deathMaterial: {fileID: 2100000, guid: 01cfb5ca356c57d498446d0008aba425, type: 2}
   _normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _path: {fileID: 0}
+  _moveOnWaypoints: 1
 --- !u!50 &3927686837466130353
 Rigidbody2D:
   serializedVersion: 5
@@ -182,11 +183,11 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &4128694258641738045
 MonoBehaviour:
   m_ObjectHideFlags: 0

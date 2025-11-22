@@ -65,5 +65,11 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D.AddForce(movement);
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            HealthComponent.TakeDamage(1);
+        }
+    }
 }

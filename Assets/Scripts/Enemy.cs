@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
 
     private Sequence _moveSeq;
 
+    public bool _moveOnWaypoints = true;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -92,7 +94,7 @@ public class Enemy : MonoBehaviour
         if (v.sqrMagnitude > 0.01f)
         {
             float targetAngle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg - 90;
-            float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, 120 * Time.fixedDeltaTime);
+            float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, 150 * Time.fixedDeltaTime);
             rb.rotation = newAngle;
 
         }
@@ -108,7 +110,11 @@ public class Enemy : MonoBehaviour
 
         PathManager.EnemyLeft++;
 
-        MoveToWaipoint();
+        if (_moveOnWaypoints)
+        {
+            MoveToWaipoint();
+        }
+
         if (!_passive) 
         { 
             StartCoroutine(AttackLoop());

@@ -154,13 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _damage: 20
   _attackSpeed: 1
-  _speed: 5
+  _speed: 8
   _bullet: {fileID: 3166506461366107561, guid: dbb595211edb43a4ca300d6ac432ce76, type: 3}
   _attackOffset: {x: 0, y: 0, z: 0}
   _passive: 1
   _deathMaterial: {fileID: 2100000, guid: 01cfb5ca356c57d498446d0008aba425, type: 2}
   _normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _path: {fileID: 0}
+  _moveOnWaypoints: 1
 --- !u!50 &8368863497680093076
 Rigidbody2D:
   serializedVersion: 5
