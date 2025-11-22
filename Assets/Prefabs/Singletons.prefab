@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8508045316697691334}
   - component: {fileID: 9008905972550876418}
   - component: {fileID: -2438927792854669764}
+  - component: {fileID: 1995851855470151813}
   m_Layer: 0
   m_Name: Singletons
   m_TagString: Untagged
@@ -61,3 +62,17 @@ MonoBehaviour:
   _sfxSource: {fileID: 0}
   _clipList: []
   _musicVolume: 0.5
+--- !u!114 &1995851855470151813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133245143832889638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5776be00005c44e99c13f0de4d3012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  DeathPsPrefab: {fileID: 265727030115935643, guid: 396788d10b626f0419fdcf1ac394480a, type: 3}
+  DamagePsPrefab: {fileID: 3284839903813360423, guid: 5f495c4a9d7a2eb4a97aad2c271778fa, type: 3}
