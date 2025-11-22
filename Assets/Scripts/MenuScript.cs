@@ -1,18 +1,34 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    //[SerializeField] private InputActionReference 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private InputActionReference pressSpace;
+
+    public int SceneIndex = 1;
+    private void pressedSpace(InputAction.CallbackContext context)
+    {
+        
+        SceneManager.LoadScene(SceneIndex , LoadSceneMode.Single);
+    }
+
+   
     void Start()
+    {
+        
+        pressSpace.action.started += pressedSpace;
+    }
+
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void OnDestroy()
     {
-        
+        pressSpace.action.started -= pressedSpace;
     }
 }
