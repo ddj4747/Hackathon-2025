@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e7edfa179cd59f43a1c498fc7eef2fd
+guid: 8352c3a23e7910d4b8f05e200b191f6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -539579915749326718
-    second: Turret_0
+      213: -7212743939725961781
+    second: DialogBox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Turret_0
+      name: DialogBox_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.47, y: 0.31}
+        y: 15
+        width: 256
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28083d9ece60388f0800000000000000
-      internalID: -539579915749326718
+      spriteID: bc558c00a9f27eb90800000000000000
+      internalID: -7212743939725961781
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ab2555124c6a5c64f997646c675dc2bd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Turret_0: -539579915749326718
+      DialogBox_0: -7212743939725961781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

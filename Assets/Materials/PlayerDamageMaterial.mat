@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2110156711290587344
+--- !u!114 &-7128043329563364453
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BarrierMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 11a39e0776a2cb347b3221c0a414e005, type: 3}
+  m_Name: PlayerDamageMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: caa2065987e22b0488e211ff10e9f672, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -41,10 +41,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _HighLight:
-        m_Texture: {fileID: 2800000, guid: 5b52b15f6ddc8f64a9f02400d10120a3, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -57,8 +53,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Stripes:
-        m_Texture: {fileID: 2800000, guid: e9dabb022775c7144a25f624af4fd33b, type: 3}
+    - _Texture2DAsset_3558adda38a74e5cacf628f27398ae33_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -75,12 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 0.03
-    - _Contrast: 1.28
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Size: 4.87
+    - _Speed: 20
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

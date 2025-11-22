@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Vector3 _attackOffset;
     [SerializeField] private bool _passive;
+
+    private Rigidbody2D rb;
     
     
 
@@ -22,6 +24,11 @@ public class Enemy : MonoBehaviour
     public Path _path;
 
     private Sequence _moveSeq;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private IEnumerator AttackLoop()
     {
@@ -31,6 +38,9 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(_attackSpeed);
         }
     }
+
+    private Vector3 _lastPosition; // Add this variable
+    
 
     private void MoveToWaipoint()
     {
@@ -44,24 +54,40 @@ public class Enemy : MonoBehaviour
 
         float duration = pathLength / _speed;
 
+        // 1. Reset last position before starting
+        _lastPosition = transform.position;
+
         _moveSeq?.Kill();
         _moveSeq = DOTween.Sequence();
-        _moveSeq.Append(transform.DOPath(_path._pathSegments.ToArray(), duration, PathType.Linear, PathMode.TopDown2D)
+
+        // 2. Change PathMode to Sidescroller2D or Ignore (Standard 2D)
+        _moveSeq.Append(transform.DOPath(_path._pathSegments.ToArray(), duration, PathType.Linear, PathMode.Sidescroller2D)
             .SetEase(Ease.Linear)
             .SetId(this))
             .OnComplete(() =>
             {
-                if (_path.loop)
-                {
-                    MoveToWaipoint();
-                } 
-                else
-                {
-                    OnDeath();
-                }
+                if (_path.loop) MoveToWaipoint();
+                else OnDeath();
             });
     }
 
+
+    private Vector3 last = Vector3.zero;
+
+    void FixedUpdate()
+    {
+        Vector3 v = (transform.position - last) / Time.deltaTime;
+        last = transform.position;
+        Debug.Log(v);
+
+        if (v.sqrMagnitude > 0.01f)
+        {
+            float targetAngle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg - 90;
+            float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, 120 * Time.fixedDeltaTime);
+            rb.rotation = newAngle;
+
+        }
+    }
 
     private void Start()
     {
