@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private Vector3 _lastPosition; // Add this variable
+    private Vector3 _lastPosition;
     
 
     private void MoveToWaipoint()
