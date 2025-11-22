@@ -31,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7075437863130114139}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.32292, y: -1.04247, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4099759173608196232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   _attackSpeed: 1
   _speed: 1.5
   _bullet: {fileID: 3166506461366107561, guid: dbb595211edb43a4ca300d6ac432ce76, type: 3}
+  _attackOffset: {x: 0, y: 0, z: 0}
+  _passive: 0
   _path: {fileID: 0}
 --- !u!50 &8368863497680093076
 Rigidbody2D:

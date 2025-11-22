@@ -46,7 +46,7 @@ public class Path : MonoBehaviour
                 Enemy enemy = Instantiate(option._enemy);
                 enemy._path = this;
                 counter++;
-                enemy.HealthComponent.OnDeath.AddListener(OnDeathH);
+                enemy.HealthComponent.OnDeath.AddListener(() => OnDeathH());
                 yield return new WaitForSeconds(option._spawnDelay);
             }
         }
